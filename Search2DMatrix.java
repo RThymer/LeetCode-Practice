@@ -5,10 +5,10 @@ public class Search2DMatrix {
         int rowUpBound = matrix.length - 1;
         int colDownBound = 0;
 
-        while(rowUpBound >= 0 && colDownBound < matrix[0].length){
+        while (rowUpBound >= 0 && colDownBound < matrix[0].length) {
             int cmp = matrix[rowUpBound][colDownBound];
-            if(cmp == target) return true;
-            else if(cmp > target) rowUpBound--;
+            if (cmp == target) return true;
+            else if (cmp > target) rowUpBound--;
             else colDownBound++;
         }
         return false;
@@ -20,7 +20,7 @@ public class Search2DMatrix {
         int[] matrixInRow = new int[matrix.length * matrix[0].length];
         int index = 0;
         for (int[] row : matrix) {
-            for (int col : row){
+            for (int col : row) {
                 matrixInRow[index++] = col;
             }
         }
@@ -31,9 +31,9 @@ public class Search2DMatrix {
     private int binarySearch(int[] array, int target) {
         int left = 0, right = array.length;
         int mid = (left + right) / 2;
-        while(left < right - 1) {
+        while (left < right - 1) {
             if (array[mid] == target) return mid;
-            else if (array[mid] > target){
+            else if (array[mid] > target) {
                 right = mid;
             } else {
                 left = mid;

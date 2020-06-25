@@ -20,8 +20,7 @@ public class WordSearch {
         else if (xPos < 0 || yPos < 0 || xPos >= row || yPos >= col
                 || visited[xPos][yPos] || word.charAt(stringIndex) != board[xPos][yPos]) {
             return false;
-        }
-        else {
+        } else {
             visited[xPos][yPos] = true;
 
             boolean left = deepSearch(board, visited, xPos - 1, yPos, word, stringIndex + 1);

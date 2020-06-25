@@ -8,20 +8,23 @@ public class B_Tree<Key extends Comparable<Key>, Value> {
     // B-tree 节点类型
     private static final class Node {
         private int m;                             // number of children
-        private Entry[] children = new Entry[M];   // the array of children
+        private final Entry[] children = new Entry[M];   // the array of children
+
         // create a node with k children
         private Node(int k) {
             m = k;
         }
     }
+
     //  B-tree 节点中的元素类型
     private static class Entry {
         private Comparable key;
-        private Object val;
+        private final Object val;
         private Node next;     // 指向节点中下一元素
+
         public Entry(Comparable key, Object val, Node next) {
-            this.key  = key;
-            this.val  = val;
+            this.key = key;
+            this.val = val;
             this.next = next;
         }
     }
@@ -35,7 +38,7 @@ public class B_Tree<Key extends Comparable<Key>, Value> {
     }
 
     /**
-     *  判断 B-tree 是否是空树
+     * 判断 B-tree 是否是空树
      */
     public boolean isEmpty() {
         return size() == 0;
@@ -50,7 +53,7 @@ public class B_Tree<Key extends Comparable<Key>, Value> {
     }
 
     /**
-     *   get操作
+     * get操作
      */
     public Value get(Key key) {
         if (key == null) throw new NullPointerException("key must not be null");
@@ -58,7 +61,7 @@ public class B_Tree<Key extends Comparable<Key>, Value> {
     }
 
     /**
-     *   put 操作
+     * put 操作
      */
     public void put(Key key, Value val) {
         if (key == null) throw new NullPointerException("key must not be null");
@@ -89,12 +92,13 @@ public class B_Tree<Key extends Comparable<Key>, Value> {
         //  外部定位
         else {
             for (int j = 0; j < x.m; j++) {
-                if (j+1 == x.m || less(key, children[j+1].key))
-                    return search(children[j].next, key, ht-1);
+                if (j + 1 == x.m || less(key, children[j + 1].key))
+                    return search(children[j].next, key, ht - 1);
             }
         }
         return null;
     }
+
     //  插入操作
     private Node insert(Node h, Key key, Value val, int ht) {
         int j;
@@ -109,8 +113,8 @@ public class B_Tree<Key extends Comparable<Key>, Value> {
         // 外部遍历
         else {
             for (j = 0; j < h.m; j++) {
-                if ((j+1 == h.m) || less(key, h.children[j+1].key)) {
-                    Node u = insert(h.children[j++].next, key, val, ht-1);
+                if ((j + 1 == h.m) || less(key, h.children[j + 1].key)) {
+                    Node u = insert(h.children[j++].next, key, val, ht - 1);
                     if (u == null) return null;
                     t.key = u.children[0].key;
                     t.next = u;
@@ -120,21 +124,22 @@ public class B_Tree<Key extends Comparable<Key>, Value> {
         }
 
         for (int i = h.m; i > j; i--)
-            h.children[i] = h.children[i-1];
+            h.children[i] = h.children[i - 1];
         h.children[j] = t;
         h.m++;
         if (h.m < M) return null;
-        else         return split(h);
+        else return split(h);
     }
 
     //  分裂节点成两半
     private Node split(Node h) {
-        Node t = new Node(M/2);
-        h.m = M/2;
-        for (int j = 0; j < M/2; j++)
-            t.children[j] = h.children[M/2+j];
+        Node t = new Node(M / 2);
+        h.m = M / 2;
+        for (int j = 0; j < M / 2; j++)
+            t.children[j] = h.children[M / 2 + j];
         return t;
     }
+
     // 判断两个元素是否相等
     private boolean equals(Comparable k1, Comparable k2) {
         return k1.compareTo(k2) == 0;
@@ -146,18 +151,18 @@ public class B_Tree<Key extends Comparable<Key>, Value> {
     }
 }
 
-class B_TreeTest{
-    public static void main(String [] args){
+class B_TreeTest {
+    public static void main(String[] args) {
         B_Tree<Integer, Integer> tree = new B_Tree<>();
-        tree.put(6,0);
-        tree.put(8,0);
-        tree.put(15,0);
-        tree.put(16,0);
-        tree.put(22,0);
-        tree.put(10,0);
-        tree.put(18,0);
-        tree.put(32,0);
-        tree.put(20,0);
+        tree.put(6, 0);
+        tree.put(8, 0);
+        tree.put(15, 0);
+        tree.put(16, 0);
+        tree.put(22, 0);
+        tree.put(10, 0);
+        tree.put(18, 0);
+        tree.put(32, 0);
+        tree.put(20, 0);
         tree.get(6);
     }
 }

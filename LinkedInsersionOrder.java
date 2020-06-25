@@ -5,12 +5,12 @@ public class LinkedInsersionOrder {
 
         ListNode iterNode = head.next; //First unordered Node
         ListNode beforeIter = head; //Be careful when inserting;
-        while(iterNode != null){
+        while (iterNode != null) {
             ListNode orderedNode = pre;
             while (orderedNode.next.val < iterNode.val) {
                 orderedNode = orderedNode.next;
             }
-            if(orderedNode == beforeIter){
+            if (orderedNode == beforeIter) {
                 beforeIter = iterNode;
                 iterNode = iterNode.next;
                 continue;
@@ -23,8 +23,8 @@ public class LinkedInsersionOrder {
     }
 
     private boolean insert(ListNode insertAfter, ListNode takeAfter) {
-        if(takeAfter == null || takeAfter.next == null) return false;
-        if(insertAfter == null || insertAfter.next == null) return false;
+        if (takeAfter == null || takeAfter.next == null) return false;
+        if (insertAfter == null || insertAfter.next == null) return false;
 
         ListNode take = takeAfter.next;
         takeAfter.next = take.next;

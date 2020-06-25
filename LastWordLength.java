@@ -9,7 +9,7 @@ public class LastWordLength {
     }
 }
 
-class LastWordLengthTest{
+class LastWordLengthTest {
     public static void main(String[] args) {
         System.out.println(new LastWordLength().lengthOfLastWord("   afd     b  "));
     }

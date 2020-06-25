@@ -7,7 +7,7 @@ public class Subsets {
 
         List<Integer> comb = new ArrayList<>();
         List<List<Integer>> result = new ArrayList<>();
-        deepSearch(nums,0, comb, result);
+        deepSearch(nums, 0, comb, result);
         return result;
     }
 
@@ -21,16 +21,16 @@ public class Subsets {
         for (int index = curPos; index < nums.length; index++) {
             if (!comb.contains(nums[index])) {
                 comb.add(nums[index]);
-                deepSearch(nums,curPos + 1, comb, result);
+                deepSearch(nums, curPos + 1, comb, result);
                 comb.remove(comb.size() - 1);
             }
         }
     }
 }
 
-class SubsetsTest{
+class SubsetsTest {
     public static void main(String[] args) {
-        int[] nums = new int[] {4,1,0};
+        int[] nums = new int[]{4, 1, 0};
         System.out.println(new Subsets().subsets(nums));
     }
 }

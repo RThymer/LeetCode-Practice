@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class PlusOne {
     public int[] plusOne(int[] digits) {
         int n = digits.length;
@@ -17,8 +14,8 @@ public class PlusOne {
     }
 }
 
-class PlusOneTest{
+class PlusOneTest {
     public static void main(String[] args) {
-        new PlusOne().plusOne(new int[]{9,9,9});
+        new PlusOne().plusOne(new int[]{9, 9, 9});
     }
 }

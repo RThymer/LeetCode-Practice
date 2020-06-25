@@ -3,13 +3,13 @@ public class Count_Say {
         int num = 0, numCnt = 0;
         String init = "1";
 
-        while(n-- > 1){
+        while (n-- > 1) {
             char[] chars = init.toCharArray();
             StringBuilder sb = new StringBuilder();
-            for(int index = 0; index < chars.length;){
+            for (int index = 0; index < chars.length; ) {
                 numCnt = 0;
                 char charTmp = chars[index];
-                while(index < chars.length && chars[index] == charTmp) {
+                while (index < chars.length && chars[index] == charTmp) {
                     numCnt++;
                     index++;
                 }
@@ -22,7 +22,7 @@ public class Count_Say {
     }
 }
 
-class Count_SayTest{
+class Count_SayTest {
     public static void main(String[] args) {
         System.out.println(new Count_Say().countAndSay(4));
     }

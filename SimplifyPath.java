@@ -1,6 +1,5 @@
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.Stack;
 
 public class SimplifyPath {
     public String simplifyPath(String path) {
@@ -8,14 +7,14 @@ public class SimplifyPath {
 
         Deque<String> deque = new ArrayDeque<>();
         //String curDir = new String();
-        for(String str : res){
+        for (String str : res) {
             switch (str) {
                 case "":
                     break;
                 case ".":
                     break;
                 case "..":
-                    if(!deque.isEmpty())
+                    if (!deque.isEmpty())
                         deque.removeLast();
                     break;
                 default:
@@ -25,8 +24,8 @@ public class SimplifyPath {
         }
 
         StringBuilder sb = new StringBuilder();
-        if(deque.isEmpty()) sb.append("/");
-        while(!deque.isEmpty()){
+        if (deque.isEmpty()) sb.append("/");
+        while (!deque.isEmpty()) {
             sb.append("/" + deque.pollFirst());
         }
 
@@ -34,7 +33,7 @@ public class SimplifyPath {
     }
 }
 
-class SimplifyPathTest{
+class SimplifyPathTest {
     public static void main(String[] args) {
         new SimplifyPath().simplifyPath("/");
     }

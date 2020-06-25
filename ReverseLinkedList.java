@@ -1,5 +1,3 @@
-import java.util.List;
-
 public class ReverseLinkedList {
     public ListNode reverseBetween(ListNode head, int m, int n) {
         ListNode preHead = new ListNode(-1);
@@ -7,9 +5,9 @@ public class ReverseLinkedList {
         ListNode returnHead = preHead;
 
         int swapOffset = n - m + 1, preReversePos = m;
-        while(--preReversePos > 0) preHead = preHead.next;
+        while (--preReversePos > 0) preHead = preHead.next;
 
-        while(swapOffset-- > 0) {
+        while (swapOffset-- > 0) {
             swapNode(preHead, swapOffset);
             preHead = preHead.next;
         }
@@ -19,7 +17,7 @@ public class ReverseLinkedList {
 
     private boolean swapNode(ListNode head, int num) {
         ListNode swapNode = head;
-        while(num-- > 0) {
+        while (num-- > 0) {
             if (swapNode.next != null)
                 swapNode = swapNode.next;
             else return false;
@@ -34,9 +32,9 @@ public class ReverseLinkedList {
     }
 
     public ListNode reverseList(ListNode head) {
-        if(head == null || head.next == null) return head;
+        if (head == null || head.next == null) return head;
         ListNode helper1 = head, helper2 = null;
-        while (helper1 != null){
+        while (helper1 != null) {
             ListNode tmp = helper1.next;
             helper1.next = helper2;
             helper2 = helper1;

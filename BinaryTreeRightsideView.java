@@ -13,12 +13,12 @@ public class BinaryTreeRightsideView {
 
         arrayDeque1.add(root);
 
-        while (!arrayDeque1.isEmpty() || !arrayDeque2.isEmpty()){
+        while (!arrayDeque1.isEmpty() || !arrayDeque2.isEmpty()) {
             TreeNode levelLast = new TreeNode(0);
-            while (!arrayDeque1.isEmpty()){
+            while (!arrayDeque1.isEmpty()) {
                 TreeNode tmp = arrayDeque1.pollFirst();
-                if(tmp.left != null) arrayDeque2.add(tmp.left);
-                if(tmp.right != null) arrayDeque2.add(tmp.right);
+                if (tmp.left != null) arrayDeque2.add(tmp.left);
+                if (tmp.right != null) arrayDeque2.add(tmp.right);
                 levelLast = tmp;
             }
             result.add(levelLast.val);
@@ -30,7 +30,7 @@ public class BinaryTreeRightsideView {
         return result;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
         root.left = new TreeNode(2);
         root.right = new TreeNode(3);

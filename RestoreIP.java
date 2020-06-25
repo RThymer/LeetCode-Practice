@@ -33,13 +33,11 @@ public class RestoreIP {
     }
 
     private boolean isValid(String s) {
-        if (s.length() > 3 || s.length() < 1 || (s.charAt(0)=='0' && s.length()>1) || Integer.parseInt(s)>255)
-            return false;
-        else return true;
+        return s.length() <= 3 && s.length() >= 1 && (s.charAt(0) != '0' || s.length() <= 1) && Integer.parseInt(s) <= 255;
     }
 }
 
-class RestoreIPTest{
+class RestoreIPTest {
     public static void main(String[] args) {
         new RestoreIP().restoreIpAddresses("25525511135");
     }

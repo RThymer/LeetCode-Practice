@@ -12,10 +12,10 @@ public class PathSumII {
     }
 
     private void transverse(TreeNode root, int sum, List<List<Integer>> result, List<Integer> aPath) {
-        if(root == null) return;
+        if (root == null) return;
         else {
             aPath.add(root.val);
-            if(listSum(aPath) == sum && root.left == null && root.right == null)
+            if (listSum(aPath) == sum && root.left == null && root.right == null)
                 result.add(new ArrayList(aPath));
             transverse(root.left, sum, result, aPath);
             transverse(root.right, sum, result, aPath);
@@ -24,8 +24,8 @@ public class PathSumII {
     }
 
     private int listSum(List<Integer> aPath) {
-        if(aPath.size() == 0) return 0;
-        else{
+        if (aPath.size() == 0) return 0;
+        else {
             int sum = 0;
             for (int a : aPath) sum += a;
             return sum;
@@ -33,7 +33,7 @@ public class PathSumII {
     }
 }
 
-class PathSumIITest{
+class PathSumIITest {
     public static void main(String[] args) {
         TreeNode root = new TreeNode(5);
         root.left = new TreeNode(4);

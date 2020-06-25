@@ -1,13 +1,13 @@
 public class FindDuplicatedNumber {
     public int findDuplicate(int[] nums) {
         int low = 1, high = nums.length - 1;
-        while(low < high){
+        while (low < high) {
             int mid = (low + high) >> 1;
             int midCnt = 0;
-            for(int i : nums){
-                if(i <= mid) midCnt++;
+            for (int i : nums) {
+                if (i <= mid) midCnt++;
             }
-            if(midCnt > mid) high = mid;
+            if (midCnt > mid) high = mid;
             else low = mid + 1;
         }
         return low;

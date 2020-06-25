@@ -18,16 +18,16 @@ public class Permutations {
     private void subSequence(int[] nums, int index, List<Integer> curList,
                              boolean[] visited, List<List<Integer>> results) {
 
-        if(index == nums.length){
-            if(!results.contains(curList)){
+        if (index == nums.length) {
+            if (!results.contains(curList)) {
                 List<Integer> addResult = new ArrayList<>(curList);
                 results.add(addResult);
             }
             return;
         }
 
-        for(int i = 0; i < nums.length; i++){
-            if(!visited[i]){
+        for (int i = 0; i < nums.length; i++) {
+            if (!visited[i]) {
                 visited[i] = true;
                 curList.add(nums[i]);
                 subSequence(nums, index + 1, curList, visited, results);
@@ -38,8 +38,8 @@ public class Permutations {
     }
 }
 
-class PermutationTest{
+class PermutationTest {
     public static void main(String[] args) {
-        System.out.println(new Permutations().permute(new int[]{1,2,3,4,5,6}));
+        System.out.println(new Permutations().permute(new int[]{1, 2, 3, 4, 5, 6}));
     }
 }

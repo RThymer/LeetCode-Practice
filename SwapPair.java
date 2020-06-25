@@ -17,7 +17,7 @@ public class SwapPair {
             pos1 = pos1.next;
             pos2 = pos1.next;
         }
-        if(pos2 != null && (pos2.next == null) || (pos2.next.next == null)) {
+        if (pos2 != null && (pos2.next == null) || (pos2.next.next == null)) {
             pos1.next = pos2.next;
             pos2.next = pos1;
             helper.next = pos2;
@@ -26,7 +26,7 @@ public class SwapPair {
     }
 }
 
-class SwapPairTest{
+class SwapPairTest {
     public static void main(String[] args) {
         ListNode head = new ListNode(1);
         head.next = new ListNode(2);

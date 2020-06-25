@@ -15,7 +15,7 @@ public class PermutationSequence {
         StringBuilder sb = new StringBuilder();
 
         k--;
-        for(int i = 0; i < n - 1; i++){
+        for (int i = 0; i < n - 1; i++) {
             int permPos = i, perm = perms[n - permPos - 1 - 1];
             int pos = k / perm;
             sb.append(list.get(pos));
@@ -29,8 +29,8 @@ public class PermutationSequence {
     }
 }
 
-class PermutationSequenceTest{
+class PermutationSequenceTest {
     public static void main(String[] args) {
-        System.out.println(new PermutationSequence().getPermutation(3,3));
+        System.out.println(new PermutationSequence().getPermutation(3, 3));
     }
 }

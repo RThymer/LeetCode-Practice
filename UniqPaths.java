@@ -19,14 +19,14 @@ public class UniqPaths {
                 else path[i][j] = path[i - 1][j] + path[i][j - 1];
             }
         }
-        return path[m-1][n-1];
+        return path[m - 1][n - 1];
     }
 
 }
 
-class UniqPathsTest{
+class UniqPathsTest {
     public static void main(String[] args) {
-        int[][] obstacleGrid = new int[][]{{0,0,0},{0,1,0},{0,0,0}};
+        int[][] obstacleGrid = new int[][]{{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
         System.out.println(new UniqPaths().uniquePathsWithObstacles(obstacleGrid));
     }
 }

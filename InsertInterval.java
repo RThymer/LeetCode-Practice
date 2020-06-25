@@ -17,15 +17,14 @@ public class InsertInterval {
 
         List<Interval> results = new ArrayList<>();
 
-        for(int index = 0; index < intervals.size() - 1; ){
-            if(intervals.get(index).end >= intervals.get(index + 1).start){
+        for (int index = 0; index < intervals.size() - 1; ) {
+            if (intervals.get(index).end >= intervals.get(index + 1).start) {
                 intervals.get(index + 1).start = intervals.get(index).start;
-                if(intervals.get(index).end >= intervals.get(index + 1).end)
+                if (intervals.get(index).end >= intervals.get(index + 1).end)
                     intervals.get(index + 1).end = intervals.get(index).end;
                 intervals.remove(index);
                 index = 0;
-            }
-            else index++;
+            } else index++;
         }
 
         return intervals;
@@ -37,11 +36,11 @@ public class InsertInterval {
 class InsertIntervalTest {
     public static void main(String[] args) {
 
-        List<Interval> li= new ArrayList<>();
-        li.add(new Interval(1,2));
-        li.add(new Interval(3,5));
-        li.add(new Interval(6,7));
-        li.add(new Interval(8,10));
-        System.out.println(new InsertInterval().insert(li, new Interval(4,8)));
+        List<Interval> li = new ArrayList<>();
+        li.add(new Interval(1, 2));
+        li.add(new Interval(3, 5));
+        li.add(new Interval(6, 7));
+        li.add(new Interval(8, 10));
+        System.out.println(new InsertInterval().insert(li, new Interval(4, 8)));
     }
 }

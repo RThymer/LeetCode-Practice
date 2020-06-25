@@ -8,7 +8,7 @@ public class SubSets2 {
         List<Integer> comb = new ArrayList<>();
         List<List<Integer>> result = new ArrayList<>();
         boolean[] visited = new boolean[nums.length];
-        deepSearch(nums,0, visited, comb, result);
+        deepSearch(nums, 0, visited, comb, result);
         return result;
     }
 
@@ -23,7 +23,7 @@ public class SubSets2 {
             if (!visited[index]) {
                 visited[index] = true;
                 comb.add(nums[index]);
-                deepSearch(nums,curPos + 1, visited, comb, result);
+                deepSearch(nums, curPos + 1, visited, comb, result);
                 comb.remove(comb.size() - 1);
                 visited[index] = false;
             }
@@ -31,9 +31,9 @@ public class SubSets2 {
     }
 }
 
-class SubSets2Test{
+class SubSets2Test {
     public static void main(String[] args) {
-        int[] nums = new int[] {1,2,2};
+        int[] nums = new int[]{1, 2, 2};
         System.out.println(new SubSets2().subsets(nums));
     }
 }

@@ -6,7 +6,7 @@ public class MaxProductionSubArray {
         maxPositive[0] = maxNegative[0] = nums[0];
 
         double max = nums[0];
-        for (int index = 1; index < length; ++index){
+        for (int index = 1; index < length; ++index) {
             maxPositive[index] = Math.max(Math.max(
                     maxNegative[index - 1] * nums[index],
                     maxPositive[index - 1] * nums[index]),
@@ -15,12 +15,12 @@ public class MaxProductionSubArray {
                     maxNegative[index - 1] * nums[index],
                     maxPositive[index - 1] * nums[index]),
                     nums[index]);
-            if(maxPositive[index] > max) max = maxPositive[index];
+            if (maxPositive[index] > max) max = maxPositive[index];
         }
-        return (int)max;
+        return (int) max;
     }
 
-    public static void main(String[] args){
-        System.out.println(new MaxProductionSubArray().maxProduct(new int[]{2,3,-2,4}));
+    public static void main(String[] args) {
+        System.out.println(new MaxProductionSubArray().maxProduct(new int[]{2, 3, -2, 4}));
     }
 }

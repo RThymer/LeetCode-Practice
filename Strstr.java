@@ -8,11 +8,11 @@ public class Strstr {
 
         if (needle.isEmpty()) return 0;
 
-        for(int i = 0; i < haystack.length(); i++) {
-            if(haystack.charAt(i) == needle.charAt(0)){
+        for (int i = 0; i < haystack.length(); i++) {
+            if (haystack.charAt(i) == needle.charAt(0)) {
                 int loopI = i, j = 0, matched = 0;
-                while(loopI < haystack.length() && j < needle.length()){
-                    if(haystack.charAt(loopI) != needle.charAt(j)) {
+                while (loopI < haystack.length() && j < needle.length()) {
+                    if (haystack.charAt(loopI) != needle.charAt(j)) {
                         matched = 0;
                         break;
                     }
@@ -20,7 +20,7 @@ public class Strstr {
                     loopI += 1;
                     j++;
                 }
-                if(j == needle.length() && matched == 1) return i;
+                if (j == needle.length() && matched == 1) return i;
             }
         }
         return -1;

@@ -1,29 +1,29 @@
 public class PartitionList {
     public ListNode partition(ListNode head, int x) {
 
-        if(head == null || head.next == null) return head;
+        if (head == null || head.next == null) return head;
 
         ListNode smallNodes = new ListNode(0), bigNodes = new ListNode(0), ret = new ListNode(0);
         ListNode smallIter = smallNodes, bigIter = bigNodes, returnHead = ret;
         ListNode iterNode = head;
 
-        while(iterNode != null){
-            if(iterNode.val >= x) {
+        while (iterNode != null) {
+            if (iterNode.val >= x) {
                 bigIter.next = new ListNode(iterNode.val);
                 bigIter = bigIter.next;
-            }else {
+            } else {
                 smallIter.next = new ListNode(iterNode.val);
                 smallIter = smallIter.next;
             }
             iterNode = iterNode.next;
         }
 
-        while(smallNodes.next != null) {
+        while (smallNodes.next != null) {
             ret.next = smallNodes.next;
             ret = ret.next;
             smallNodes = smallNodes.next;
         }
-        while(bigNodes.next != null) {
+        while (bigNodes.next != null) {
             ret.next = bigNodes.next;
             ret = ret.next;
             bigNodes = bigNodes.next;

@@ -8,14 +8,14 @@ public class ArrayProductExceptSelf {
 
         int mul = 1;
         //从左到右偏一位
-        for(int i = 1; i < nums.length; ++i){
+        for (int i = 1; i < nums.length; ++i) {
             mul *= nums[i - 1];
             res[i] = mul;
         }
 
         mul = 1;
         //从右到左偏一位
-        for(int i = nums.length - 2; i >= 0; --i){
+        for (int i = nums.length - 2; i >= 0; --i) {
             mul *= nums[i + 1];
             res[i] *= mul;
         }

@@ -1,22 +1,17 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
 public class DeleteDuplicateElement {
     public ListNode deleteDuplicates(ListNode head) {
         ListNode arrange = new ListNode(0), tmp = arrange, iter = head;
         arrange.next = head;
         boolean dulplicated = false;
-        while(iter != null) {
-            if(iter.next != null && iter.val == iter.next.val) {
+        while (iter != null) {
+            if (iter.next != null && iter.val == iter.next.val) {
                 iter = iter.next;
                 dulplicated = true;
-            }else if(dulplicated){
+            } else if (dulplicated) {
                 arrange.next = iter.next;
                 iter = iter.next;
                 dulplicated = false;
-            }else {
+            } else {
                 arrange.next = iter;
                 arrange = arrange.next;
                 iter = iter.next;
